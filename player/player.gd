@@ -12,6 +12,13 @@ var velocity = Vector2.ZERO;
 var select = "ThunderShield";
 var magic = false;
 
+var dash_cooldown = 0;
+var dash = false;
+
+func dash():
+	dash = true;
+	$AnimatedSprite.play("dash")
+
 func magic():
 	magic = true;
 	$AnimatedSprite.play(select);
@@ -39,22 +46,22 @@ func _is_fall():
 	return not is_on_floor() and velocity.y > 0;
 
 func _anim():
-	if magic: return
+	if magic or dash: return
 	if _is_jump(): return $AnimatedSprite.play("jump");
 	if _is_fall(): return $AnimatedSprite.play("fall");
 	
 	if velocity.x == 0: return $AnimatedSprite.play("idle");
-	else: return $AnimatedSprite.play("walk");
+	if velocity.x == SPEED or velocity.x == -SPEED: return $AnimatedSprite.play("walk")
 
 func _process(delta):
-	velocity.x = 0;
+	dash_cooldown -= delta;
 	$AnimatedSprite/Position2D.look_at(get_global_mouse_position());
+	
 	if not is_on_floor(): velocity.y += GRAVITY * delta;
 	else: velocity.y = 0;
+	velocity.x = 0;
 	
-	if not magic:
-		if Input.is_action_just_pressed("dash"):
-			velocity.x = SPEED * 15 * $AnimatedSprite.scale.x
+	if not magic and not dash:
 		
 		if Input.is_action_pressed("left"):
 			velocity.x -= SPEED;
@@ -67,6 +74,10 @@ func _process(delta):
 		if Input.is_action_just_pressed("up") and is_on_floor():
 			velocity.y = -JUMP_FORCE;
 		
+		if Input.is_action_just_pressed("dash") and dash_cooldown <= 0:
+			dash();
+			dash_cooldown = 1.5;
+		
 		if Input.is_action_just_pressed("magic") and is_on_floor():
 			magic();
 	
@@ -74,11 +85,18 @@ func _process(delta):
 		if select == "ThunderShield" and $AnimatedSprite.frame >= 2 and Input.is_action_pressed("magic"):
 			$AnimatedSprite.frame = 2;
 	
+	if dash:
+		velocity.x += SPEED * 2.6 * $AnimatedSprite.scale.x
+	
 	_anim();
 	move_and_slide(velocity, Vector2.UP, true);
 
 
 func _on_AnimatedSprite_animation_finished():
 	var name = $AnimatedSprite.animation;
+	
+	if name == "dash":
+		dash = false;
+	
 	if name == "ThunderShield" or name == "BloodHeal" or name == "GrassRadial" or name == "IceShot":
 		magic = false;
