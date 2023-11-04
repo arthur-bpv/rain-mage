@@ -11,7 +11,7 @@ var magic = false;
 
 func magic():
 	magic = true;
-	$AnimatedSprite.play(select)
+	$AnimatedSprite.play(select);
 
 func _is_jump():
 	return not is_on_floor() and velocity.y < 0;
@@ -46,6 +46,10 @@ func _process(delta):
 		
 		if Input.is_action_just_pressed("magic") and is_on_floor():
 			magic();
+	
+	if magic:
+		if $AnimatedSprite.frame >= 2 and Input.is_action_pressed("magic") and select == "thunder_block":
+			$AnimatedSprite.frame = 2;
 	
 	_anim();
 	move_and_slide(velocity, Vector2.UP, true);

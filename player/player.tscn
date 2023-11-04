@@ -98,7 +98,7 @@ animations = [ {
 "frames": [ SubResource( 8 ), SubResource( 7 ) ],
 "loop": true,
 "name": "idle",
-"speed": 4.0
+"speed": 2.0
 }, {
 "frames": [ SubResource( 9 ) ],
 "loop": true,
@@ -108,7 +108,7 @@ animations = [ {
 "frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": false,
 "name": "thunder_block",
-"speed": 10.0
+"speed": 9.0
 }, {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
