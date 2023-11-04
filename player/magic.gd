@@ -14,9 +14,10 @@ func _input(event):
 func _process(delta):
 	if Input.is_action_pressed("select"):
 		visible = true;
-		scale.x = lerp(scale.x, 1.4, 0.2);
-		scale.y = lerp(scale.y, 1.4, 0.2);
+		scale.x = lerp(scale.x, 1, 0.2);
+		scale.y = lerp(scale.y, 1, 0.2);
 		rotation_degrees = lerp(rotation_degrees, 360, 0.2);
+		$Pointer.global_transform = get_node(player.select+"/Position2D").global_transform;
 		return
 	
 	scale.x = 0;
@@ -25,13 +26,13 @@ func _process(delta):
 
 
 func _on_ThunderShield_mouse_entered():
-	player.select = "thunder_shield"
+	player.select = "ThunderShield"
 
 func _on_IceShot_mouse_entered():
-	player.select = "ice_shot"
+	player.select = "IceShot"
 
 func _on_GrassRadial_mouse_entered():
-	player.select = "grass_radial"
+	player.select = "GrassRadial"
 
 func _on_BloodHeal_mouse_entered():
-	player.select = "blood_heal"
+	player.select = "BloodHeal"

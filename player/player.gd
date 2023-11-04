@@ -9,21 +9,21 @@ const JUMP_FORCE = 300;
 
 var velocity = Vector2.ZERO;
 
-var select = "thunder_shield";
+var select = "ThunderShield";
 var magic = false;
 
 func magic():
 	magic = true;
 	$AnimatedSprite.play(select);
 	
-	if select == "ice_shot":
+	if select == "IceShot":
 		for n in 3:
 			yield(get_tree().create_timer(0.2 * n), "timeout");
 			var p = ice_projectile.instance();
 			p.global_transform = $AnimatedSprite/Position2D.global_transform;
 			get_tree().root.get_child(0).add_child(p);
 	
-	if select == "grass_radial":
+	if select == "GrassRadial":
 		for n in 8:
 			yield(get_tree().create_timer(0.01 * n), "timeout");
 			var a = 25.5 * n
@@ -71,7 +71,7 @@ func _process(delta):
 			magic();
 	
 	if magic:
-		if select == "thunder_shield" and $AnimatedSprite.frame >= 2 and Input.is_action_pressed("magic"):
+		if select == "ThunderShield" and $AnimatedSprite.frame >= 2 and Input.is_action_pressed("magic"):
 			$AnimatedSprite.frame = 2;
 	
 	_anim();
