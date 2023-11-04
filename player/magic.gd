@@ -30,6 +30,8 @@ func _on_ThunderShield_mouse_entered():
 func _on_IceShot_mouse_entered():
 	player.select = "ice_shot"
 
-
 func _on_GrassRadial_mouse_entered():
 	player.select = "grass_radial"
+
+func _on_BloodHeal_mouse_entered():
+	player.select = "blood_heal"

@@ -17,6 +17,7 @@ radius = 7.07107
 
 [node name="Node2D" type="Node2D"]
 scale = Vector2( 1.4, 1.4 )
+z_index = 99
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -49,3 +50,4 @@ shape = SubResource( 4 )
 [connection signal="mouse_entered" from="ThunderShield" to="." method="_on_ThunderShield_mouse_entered"]
 [connection signal="mouse_entered" from="IceShot" to="." method="_on_IceShot_mouse_entered"]
 [connection signal="mouse_entered" from="GrassRadial" to="." method="_on_GrassRadial_mouse_entered"]
+[connection signal="mouse_entered" from="BloodHeal" to="." method="_on_BloodHeal_mouse_entered"]

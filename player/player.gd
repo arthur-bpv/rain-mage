@@ -17,8 +17,8 @@ func magic():
 	$AnimatedSprite.play(select);
 	
 	if select == "ice_shot":
-		for n in 2:
-			yield(get_tree().create_timer(0.4 * n), "timeout");
+		for n in 3:
+			yield(get_tree().create_timer(0.2 * n), "timeout");
 			var p = ice_projectile.instance();
 			p.global_transform = $AnimatedSprite/Position2D.global_transform;
 			get_tree().root.get_child(0).add_child(p);
@@ -79,6 +79,4 @@ func _process(delta):
 
 
 func _on_AnimatedSprite_animation_finished():
-	if $AnimatedSprite.animation == "thunder_shield": magic = false;
-	if $AnimatedSprite.animation == "ice_shot": magic = false;
-	if $AnimatedSprite.animation == "grass_radial": magic = false;
+	magic = false;
