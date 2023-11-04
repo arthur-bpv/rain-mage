@@ -57,7 +57,7 @@ func _process(delta):
 	dash_cooldown -= delta;
 	$AnimatedSprite/Position2D.look_at(get_global_mouse_position());
 	
-	if not is_on_floor(): velocity.y += GRAVITY * delta;
+	if not is_on_floor() and not dash: velocity.y += GRAVITY * delta;
 	else: velocity.y = 0;
 	velocity.x = 0;
 	

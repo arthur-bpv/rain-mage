@@ -2,7 +2,7 @@ extends Area2D
 
 
 func _process(delta):
-	position += transform.x * 230 * delta;
+	position += transform.x * 212 * delta;
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free();
