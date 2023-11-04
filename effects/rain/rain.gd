@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var drop = preload("res://effects/rain/drop.tscn");
 
 var MIN_PER_SPAWN = 8.0;

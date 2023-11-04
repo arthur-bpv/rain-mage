@@ -17,7 +17,6 @@ radius = 7.0
 radius = 7.07107
 
 [node name="Select" type="Node2D"]
-z_index = 99
 script = ExtResource( 2 )
 
 [node name="Menu" type="Sprite" parent="."]

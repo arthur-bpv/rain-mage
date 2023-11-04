@@ -3,7 +3,7 @@ extends Node2D
 var player;
 
 func _ready():
-	player = get_parent();
+	player = get_parent().get_parent();
 	visible = false;
 
 func _input(event):

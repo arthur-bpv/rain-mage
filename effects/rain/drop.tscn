@@ -1,19 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://effects/rain/drop.gd" type="Script" id=1]
-
-[sub_resource type="Curve" id=3]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=4]
-curve = SubResource( 3 )
 
 [sub_resource type="ParticlesMaterial" id=5]
 flag_disable_z = true
 gravity = Vector3( 0, -24, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale_curve = SubResource( 4 )
+color = Color( 0.682353, 0.878431, 1, 0.482353 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 0.5, 0.5 )
@@ -27,7 +21,7 @@ rect = Rect2( -1, -1, 1, 1 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 amount = 4
-lifetime = 1.2
+speed_scale = 2.0
 process_material = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
