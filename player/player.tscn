@@ -168,7 +168,7 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
 animation = "BloodHeal"
-frame = 3
+frame = 2
 playing = true
 
 [node name="Position2D" type="Position2D" parent="AnimatedSprite"]
@@ -186,6 +186,9 @@ current = true
 limit_left = 0
 limit_top = 0
 limit_bottom = 216
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 16.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

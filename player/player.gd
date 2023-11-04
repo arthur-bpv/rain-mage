@@ -25,7 +25,6 @@ func magic():
 	
 	if $AnimatedSprite.animation == "GrassRadial":
 		for n in 8:
-			yield(get_tree().create_timer(0.01 * n), "timeout");
 			var a = 25.5 * n
 			var p = grass_projectile.instance();
 			p.global_position = global_position;
@@ -53,10 +52,10 @@ func _process(delta):
 	if not is_on_floor(): velocity.y += GRAVITY * delta;
 	else: velocity.y = 0;
 	
-	if Input.is_action_just_pressed("dash"):
-		 velocity.x = SPEED * 15 * $AnimatedSprite.scale.x
-	
 	if not magic:
+		if Input.is_action_just_pressed("dash"):
+			velocity.x = SPEED * 15 * $AnimatedSprite.scale.x
+		
 		if Input.is_action_pressed("left"):
 			velocity.x -= SPEED;
 			$AnimatedSprite.scale.x = -1;
