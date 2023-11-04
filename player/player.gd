@@ -53,6 +53,9 @@ func _process(delta):
 	if not is_on_floor(): velocity.y += GRAVITY * delta;
 	else: velocity.y = 0;
 	
+	if Input.is_action_just_pressed("dash"):
+		 velocity.x = SPEED * 15 * $AnimatedSprite.scale.x
+	
 	if not magic:
 		if Input.is_action_pressed("left"):
 			velocity.x -= SPEED;
