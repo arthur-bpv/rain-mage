@@ -51,7 +51,7 @@ func _magic():
 				yield(get_tree().create_timer(0.2 * n), "timeout");
 				var p = ice_projectile.instance();
 				p.global_transform = $AnimatedSprite/Position2D.global_transform;
-				get_tree().root.get_child(0).add_child(p);
+				get_tree().root.get_child(0).add_child_below_node(self, p);
 	
 		if $AnimatedSprite.animation == "GrassRadial":
 			for n in 9:
@@ -59,13 +59,13 @@ func _magic():
 				var p = grass_projectile.instance();
 				p.global_position = global_position;
 				p.global_rotation_degrees = a + 180;
-				get_tree().root.get_child(0).add_child(p);
+				get_tree().root.get_child(0).add_child_below_node(self, p);
 	
 		if $AnimatedSprite.animation == "CrystalShot":
 			yield($AnimatedSprite, "animation_finished");
 			var p = crystal_projectile.instance();
 			p.global_transform = $AnimatedSprite/Position2D.global_transform;
-			get_tree().root.get_child(0).add_child(p);
+			get_tree().root.get_child(0).add_child_below_node(self, p);
 
 func _anim():
 	if magic or dash: return

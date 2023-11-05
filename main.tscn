@@ -1,40 +1,39 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://effects/rain/rain.tscn" type="PackedScene" id=2]
+[ext_resource path="res://world/tilemap/swamp/TileMap.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 135.5, 21 )
+extents = Vector2( 120, 12 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 42.5, 21.5 )
+extents = Vector2( 36, 12 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 48, 60 )
 
 [node name="main" type="Node2D"]
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = 288.0
-margin_top = 147.0
-margin_right = 373.0
-margin_bottom = 190.0
-color = Color( 0.427451, 0.0901961, 0.0901961, 1 )
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_top = 174.0
-margin_right = 271.0
-margin_bottom = 217.0
-color = Color( 0.427451, 0.0901961, 0.0901961, 1 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 120, 204 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 300, 156 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 408, 156 )
+shape = SubResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 105, 136 )
 
 [node name="Wheater" parent="." instance=ExtResource( 2 )]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 135.5, 195 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 330.5, 168.5 )
-shape = SubResource( 2 )
+[node name="SwampTileMap" parent="." instance=ExtResource( 3 )]
+scale = Vector2( 0.75, 0.75 )
+tile_data = PoolIntArray( 262159, 0, 0, 262160, 0, 1, 262161, 0, 1, 262162, 0, 2, 327695, 0, 65541, 327696, 0, 65537, 327697, 0, 65537, 327698, 0, 65538, 393227, 0, 196609, 393228, 0, 196610, 393229, 0, 196611, 393231, 0, 65541, 393232, 0, 65537, 393233, 0, 65537, 393234, 0, 65538, 458767, 0, 65541, 458768, 0, 65537, 458769, 0, 65537, 458770, 0, 65538, 524288, 0, 0, 524289, 0, 1, 524290, 0, 1, 524291, 0, 1, 524292, 0, 1, 524293, 0, 1, 524294, 0, 1, 524295, 0, 1, 524296, 0, 1, 524297, 0, 2, 524303, 0, 65541, 524304, 0, 65537, 524305, 0, 65537, 524306, 0, 65538 )

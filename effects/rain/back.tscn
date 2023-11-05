@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://effects/rain/back.gd" type="Script" id=1]
+
+[sub_resource type="Curve" id=2]
+max_value = 0.75
+_data = [ Vector2( 0.376404, 0.75 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+flag_disable_z = true
+direction = Vector3( 1, -220, 0 )
+spread = 64.0
+gravity = Vector3( 0, 100, 0 )
+initial_velocity = 32.0
+initial_velocity_random = 0.2
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 720.0
+angle_random = 1.0
+scale = 0.75
+scale_curve = SubResource( 3 )
+color = Color( 0.682353, 0.878431, 1, 0.482353 )
+
+[node name="Particles2D" type="Particles2D"]
+emitting = false
+amount = 4
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 1 )
+script = ExtResource( 1 )
