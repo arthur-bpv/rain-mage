@@ -54,8 +54,8 @@ func _magic():
 				get_tree().root.get_child(0).add_child(p);
 	
 		if $AnimatedSprite.animation == "GrassRadial":
-			for n in 8:
-				var a = 25.5 * n
+			for n in 9:
+				var a = 22.5 * n
 				var p = grass_projectile.instance();
 				p.global_position = global_position;
 				p.global_rotation_degrees = a + 180;
