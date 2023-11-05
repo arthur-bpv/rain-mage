@@ -13,16 +13,30 @@ func _input(event):
 
 func _process(delta):
 	if Input.is_action_pressed("select"):
+		var a = get_node(player.select+"/Position2D");
+		
+		$Menu.scale = lerp($Menu.scale, Vector2(1,1), 0.2);
+		$Menu.rotation_degrees = lerp($Menu.rotation_degrees, 360, 0.2);
+		
+		$Staffs.scale = lerp($Staffs.scale, Vector2(1,1), 0.2);
+		$Staffs.rotation_degrees = lerp($Staffs.rotation_degrees, 360, 0.2);
+		
+		$Pointer.scale = lerp($Pointer.scale, Vector2(1,1), 0.2);
+		$Pointer.global_position = a.global_position;
+		$Pointer.global_rotation = a.global_rotation;
+		
 		visible = true;
-		scale.x = lerp(scale.x, 1, 0.2);
-		scale.y = lerp(scale.y, 1, 0.2);
-		rotation_degrees = lerp(rotation_degrees, 360, 0.2);
-		$Pointer.global_transform = get_node(player.select+"/Position2D").global_transform;
 		return
 	
-	scale.x = 0;
-	scale.y = 0;
-	rotation_degrees = 0;
+	$Menu.scale = Vector2(0,0);
+	$Menu.rotation_degrees = 0;
+	
+	$Staffs.scale = Vector2(0,0);
+	$Staffs.rotation_degrees = 0;
+	
+	$Pointer.scale = Vector2(0,0);
+	
+	visible = false;
 
 
 func _on_ThunderShield_mouse_entered():
@@ -36,3 +50,6 @@ func _on_GrassRadial_mouse_entered():
 
 func _on_BloodHeal_mouse_entered():
 	player.select = "BloodHeal"
+
+func _on_Staff_mouse_entered():
+	player.select = "CrystalShot"

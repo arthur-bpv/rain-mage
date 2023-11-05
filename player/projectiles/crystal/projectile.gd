@@ -2,8 +2,7 @@ extends Area2D
 
 
 func _process(delta):
-	position += transform.x * 210 * delta;
-	$Sprite.rotation_degrees += 16;
+	position += transform.x * 200 * delta;
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free();
