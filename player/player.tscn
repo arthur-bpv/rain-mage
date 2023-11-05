@@ -166,7 +166,7 @@ animations = [ {
 "frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ) ],
 "loop": true,
 "name": "CrystalShot",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
 "loop": true,
@@ -218,6 +218,7 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
 animation = "CrystalShot"
+frame = 2
 playing = true
 
 [node name="Position2D" type="Position2D" parent="AnimatedSprite"]
