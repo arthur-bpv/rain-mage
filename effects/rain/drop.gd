@@ -9,9 +9,11 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _on_Area2D_body_entered(body):
 	var p = back.instance();
+	get_tree().root.get_child(0).add_child(p);
+	
 	p.global_position = global_position;
 	p.global_position.y -= 3;
-	get_tree().root.get_child(0).add_child(p);
+	
 	queue_free();
 
 func _process(delta):

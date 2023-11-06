@@ -218,7 +218,7 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
 animation = "CrystalShot"
-frame = 2
+frame = 3
 playing = true
 
 [node name="Position2D" type="Position2D" parent="AnimatedSprite"]
@@ -234,8 +234,6 @@ shape = SubResource( 6 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 limit_left = 0
-limit_top = 0
-limit_bottom = 216
 limit_smoothed = true
 smoothing_enabled = true
 smoothing_speed = 16.0
