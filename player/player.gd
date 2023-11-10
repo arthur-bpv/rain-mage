@@ -3,6 +3,7 @@ extends KinematicBody2D
 var ice_projectile = preload("res://player/projectiles/ice/projectile.tscn");
 var grass_projectile = preload("res://player/projectiles/grass/projectile.tscn");
 var crystal_projectile = preload("res://player/projectiles/crystal/projectile.tscn");
+var life = preload("res://player/Life.tscn")
 
 const SPEED = 96;
 const GRAVITY = 900;
@@ -15,6 +16,8 @@ var magic = false;
 
 var dash_cooldown = 0;
 var dash = false;
+
+var damage = -1
 
 func _is_jump():
 	return not is_on_floor() and velocity.y < 0;
@@ -111,3 +114,8 @@ func _on_AnimatedSprite_animation_finished():
 	
 	if name == "ThunderShield" or name == "BloodHeal" or name == "GrassRadial" or name == "IceShot" or name == "CrystalShot":
 		magic = false;
+
+#func _life():
+#	if life + damage:
+
+#não terminei porque fui para a escola
