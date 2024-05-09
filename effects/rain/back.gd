@@ -1,7 +1,7 @@
-extends Particles2D
+extends GPUParticles2D
 
 func _ready():
-	amount = int(rand_range(1, 4));
+	amount = int(randf_range(1, 4));
 	one_shot = true;
 	emitting = true;
 

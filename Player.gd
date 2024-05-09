@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 const UP = Vector2(0, -1)
 const GRAVITY = 20
@@ -52,4 +52,7 @@ func _physics_process(_delta):
 		elif motion.y > 0:
 			$AnimationPlayer.play("fall")
 	
-	motion = move_and_slide(motion,UP)
+	set_velocity(motion)
+	set_up_direction(UP)
+	move_and_slide()
+	motion = velocity

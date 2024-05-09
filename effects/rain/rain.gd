@@ -12,10 +12,10 @@ func _process(delta):
 	
 	if cooldown <= 0:
 		
-		for n in int(rand_range(MIN_PER_SPAWN, MAX_PER_SPAWN)):
-			var d = drop.instance();
-			d.position.x = rand_range(0, 384);
-			d.position.y = -rand_range(0, 128);
+		for n in int(randf_range(MIN_PER_SPAWN, MAX_PER_SPAWN)):
+			var d = drop.instantiate();
+			d.position.x = randf_range(0, 384);
+			d.position.y = -randf_range(0, 128);
 			add_child(d);
 		
 		cooldown = 1;

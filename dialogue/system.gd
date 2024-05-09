@@ -12,6 +12,7 @@ func add(text: String):
 
 func start():
 	visible = true;
+	$AnimationPlayer.play("writer")
 	$Label.text = queue[index];
 
 func end():
